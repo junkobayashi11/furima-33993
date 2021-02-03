@@ -2,14 +2,14 @@
 
 ## users テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| name         | string | null: false |
-| kananame     | string | null: false |
-| nickname     | string | null: false |
-| email        | string | null: false |
-| password     | string | null: false |
-| phone_number | string | null: false |
+| Column       | Type   | Options                   |
+| ------------ | ------ | ------------------------- |
+| name         | string | null: false, unique: true |
+| kananame     | string | null: false, unique: true |
+| nickname     | string | null: false, unique: true |
+| email        | string | null: false, unique: true |
+| password     | string | null: false, unique: true |
+| phone_number | string | null: false, unique: true |
 | birth_date   | string | null: false |
 
 
@@ -39,13 +39,13 @@
 
 ## street_address テーブル
 
-| Column        | Type    | Options     |
-| ------------- | --------| ----------- |
-| post_code     | string  | null: false |
-| prefectures   | string  | null: false |
-| municipality  | string  | null: false |
-| address       | string  | null: false |
-| building_name | string  | null: false |
+| Column        | Type    | Options                   |
+| ------------- | --------| ------------------------- |
+| post_code     | string  | null: false, unique: true |
+| prefectures   | string  | null: false, unique: true |
+| municipality  | string  | null: false, unique: true |
+| address       | string  | null: false, unique: true |
+| building_name | string  | null: false, unique: true |
 | buyer         | string  | null: false |
 
 
