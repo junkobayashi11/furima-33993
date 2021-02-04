@@ -22,17 +22,18 @@
 
 ## items テーブル
 
-| Column              | Type      | Options                        |
-| ------------------- | --------- | -------------------------------|
-| name                | string    | null: false                    |
-| category_id         | integer   | null: false                    |
-| state_id            | integer   | null: false                    |
-| prefectures_id      | integer   | null: false                    |
-| shipping_charges_id | integer   | null: false                    |
-| date_shipment_id    | integer   | null: false                    |
-| price               | integer   | null: false                    |
-| text                | text      | null: false                    |
-| user                | references| null: false, foreign_key: true |
+| Column                 | Type      | Options                        |
+| ---------------------- | --------- | -------------------------------|
+| name                   | string    | null: false                    |
+| category_id            | integer   | null: false                    |
+| state_id               | integer   | null: false                    |
+| prefecture_id          | integer   | null: false                    |
+| shipping_charge_id     | integer   | null: false                    |
+| date_shipment_id       | integer   | null: false                    |
+| price                  | integer   | null: false                    |
+| text                   | text      | null: false                    |
+| shipment_prefecture_id | integer   | null: false                    |
+| user                   | references| null: false, foreign_key: true |
 
 
 
@@ -44,7 +45,7 @@
 
 
 
-## street_address テーブル
+## street_addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
@@ -53,6 +54,7 @@
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | buyer          | references | null: false, foreign_key: true |
 
 
