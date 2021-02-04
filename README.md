@@ -27,6 +27,7 @@
 | name                | string    | null: false                    |
 | category_id         | integer   | null: false                    |
 | state_id            | integer   | null: false                    |
+| prefectures_id      | integer   | null: false                    |
 | shipping_charges_id | integer   | null: false                    |
 | date_shipment_id    | integer   | null: false                    |
 | price               | integer   | null: false                    |
@@ -48,7 +49,6 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
 | municipality   | string     | null: false                    |
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
@@ -69,7 +69,7 @@
 | column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
-| items          | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 
 
