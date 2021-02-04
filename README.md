@@ -10,7 +10,7 @@
 | frigana_first_name | string | null: false               |
 | frigana_last_name  | string | null: false               |
 | email              | string | null: false, unique: true |
-| password           | string | null: false               |
+| encrypted_password | string | null: false               |
 | birth_date         | date   | null: false               |
 
 
@@ -52,7 +52,7 @@
 | municipality   | string     | null: false                    |
 | address        | string     | null: false                    |
 | building_name  | string     |                                |
-| phone_number   | integer    | null: false                    |
+| phone_number   | string     | null: false                    |
 | buyer          | references | null: false, foreign_key: true |
 
 
@@ -77,3 +77,4 @@
 
 - has_one    :street_address
 - belongs_to :item
+- belongs_to :user
