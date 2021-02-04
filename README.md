@@ -2,34 +2,37 @@
 
 ## users テーブル
 
-| Column       | Type   | Options                   |
-| ------------ | ------ | ------------------------- |
-| name         | string | null: false               |
-| kananame     | string | null: false               |
-| nickname     | string | null: false               |
-| email        | string | null: false, unique: true |
-| password     | string | null: false               |
-| phone_number | string | null: false               |
-| birth_date   | date   | null: false               |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| first_name         | string | null: false               |
+| last_name          | string | null: false               |
+| frigana_first_name | string | null: false               |
+| frigana_last_name  | string | null: false               |
+| email              | string | null: false, unique: true |
+| password           | string | null: false               |
+| birth_date         | date   | null: false               |
 
 
 
 ### Association
 
 - has_many :items
-- has_one  :street_address
 - has_many :buyers
 
 ## items テーブル
 
-| Column      | Type      | Options                        |
-| ----------- | --------- | -------------------------------|
-| product     | string    | null: false                    |
-| category_id | integer   | null: false                    |
-| state_id    | integer   | null: false                    |
-| price       | integer   | null: false                    |
-| text        | text      | null: false                    |
-| user_id     | references| null: false, foreign_key: true |
+| Column              | Type      | Options                        |
+| ------------------- | --------- | -------------------------------|
+| name                | string    | null: false                    |
+| category_id         | integer   | null: false                    |
+| state_id            | integer   | null: false                    |
+| shipping_charges_id | integer   | null: false                    |
+| date_shipment_id    | integer   | null: false                    |
+| price               | integer   | null: false                    |
+| text                | text      | null: false                    |
+| user                | references| null: false, foreign_key: true |
+
 
 
 
@@ -42,13 +45,15 @@
 
 ## street_address テーブル
 
-| Column         | Type    | Options     |
-| -------------- | ------- | ----------- |
-| post_code      | string  | null: false |
-| prefectures_id | integer | null: false |
-| municipality   | string  | null: false |
-| address        | string  | null: false |
-| building_name  | string  | null: false |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| post_code      | string     | null: false                    |
+| prefectures_id | integer    | null: false                    |
+| municipality   | string     | null: false                    |
+| address        | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | integer    | null: false                    |
+| buyer          | references | null: false, foreign_key: true |
 
 
 
@@ -56,7 +61,6 @@
 ### Association
 
 - belongs_to :buyer
-- belongs_to :user
 
 
 
@@ -64,9 +68,8 @@
 
 | column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| user_id        | references | null: false, foreign_key: true |
-| items_id       | references | null: false, foreign_key: true |
-| street_address | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| items          | references | null: false, foreign_key: true |
 
 
 
@@ -74,4 +77,3 @@
 
 - has_one    :street_address
 - belongs_to :item
-- belongs_to :user
