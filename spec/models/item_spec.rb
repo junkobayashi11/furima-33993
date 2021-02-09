@@ -63,7 +63,8 @@ RSpec.describe Item, type: :model do
       end
 
       it '販売価格は半角でなければ登録できない' do
-        @item.price = "３３えん"
+        @item.price = "３３３３"
+        @item.price = "3333"
         binding.pry
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
