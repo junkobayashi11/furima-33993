@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates :last_name
   end
 
-  with_options presence: true, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/, messages: "全角カタカナのみで入力して下さい"} do
+  with_options presence: true, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/, messages: '全角カタカナのみで入力して下さい' } do
     validates :frigana_first_name
     validates :frigana_last_name
   end
