@@ -26,32 +26,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
 
-      it 'カテゴリーが空では登録できない' do
-        @item.category = nil
+      it 'カテゴリーが---では登録できない' do
+        @item.category_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
 
-      it '商品の状態が空では登録できない' do
-        @item.state = nil
+      it '商品の状態が---では登録できない' do
+        @item.state_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("State Select")
       end
 
-      it '発送料負担が空では登録できない' do
-        @item.shipping_charge = nil
+      it '発送料負担が---では登録できない' do
+        @item.shipping_charge_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge Select")
       end
 
-      it '発送元の地域が空では登録できない' do
-        @item.prefecture = nil
+      it '発送元の地域が---では登録できない' do
+        @item.prefecture_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture Select")
       end
 
-      it '発送までの日数が空では登録できない' do
-        @item.date_shipment = nil
+      it '発送までの日数が---では登録できない' do
+        @item.date_shipment_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Date shipment Select")
       end
