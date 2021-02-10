@@ -34,7 +34,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to action: :index
+  end
+
   private
+
   def item_params
     params.require(:item).permit(:image, :name, :category_id, :state_id, :shipping_charge_id, :date_shipment_id, :prefecture_id,
                                  :price, :text).merge(user_id: current_user.id)
@@ -45,8 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def set_transition
-    unless current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 end
