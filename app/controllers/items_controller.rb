@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_transition, only: [:edit, :update]
+  before_action :set_transition, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -34,7 +34,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy
+    redirect_to action: :index
+  end
+
   private
+
   def item_params
     params.require(:item).permit(:image, :name, :category_id, :state_id, :shipping_charge_id, :date_shipment_id, :prefecture_id,
                                  :price, :text).merge(user_id: current_user.id)
@@ -45,8 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def set_transition
-    unless current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 end
