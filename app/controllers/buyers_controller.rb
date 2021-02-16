@@ -2,6 +2,7 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_buyer, only: [:index, :create, :set_tramsition]
   before_action :set_transition, only: :index
+  before_action :set_login, only: :index
 
   def index
     @street_buyer = StreetBuyer.new
@@ -28,6 +29,10 @@ class BuyersController < ApplicationController
 
   def set_transition
     redirect_to root_path if current_user.id == @buyer_street.user_id
+  end
+
+  def set_login
+    redirect_to action: :index if (current_user.id == @buyer_street.user_id) && @buyer_street.buyer.present?
   end
 
   def set_buyer
