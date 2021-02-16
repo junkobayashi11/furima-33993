@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload('/files/test_image.png')
+    @item.image = fixture_file_upload("/files/test_image.png")
   end
 
   describe 'ユーザー商品投稿' do
