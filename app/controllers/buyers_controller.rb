@@ -1,7 +1,7 @@
 class BuyersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_buyer, only: [:index, :create, :set_tramsition]
-  before_action :set_transition, only: :index
+  before_action :set_transition, only: [:index, :create]
 
   def index
     @street_buyer = StreetBuyer.new
