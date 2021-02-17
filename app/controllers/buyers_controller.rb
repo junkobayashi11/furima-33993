@@ -43,3 +43,4 @@ class BuyersController < ApplicationController
     )
   end
 end
+
